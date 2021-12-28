@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.score_domino">
    <application
-        android:label="score_domino"
+        android:label="Anota Domino"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

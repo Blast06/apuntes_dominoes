@@ -71,18 +71,22 @@ class _InputScoreState extends State<InputScore> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             content: TextFormField(
-                keyboardType: TextInputType.number,
-                controller: _textController,
-                autofocus: true,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly
-                ],
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
+              keyboardType: TextInputType.number,
+              controller: _textController,
+              autofocus: true,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ],
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
-                onChanged: (valor) => setState(() {})),
+              ),
+              onChanged: (valor) => setState(() {}),
+              onFieldSubmitted: (_) {
+                _doSubmit(isOneValue);
+              },
+            ),
             actions: <Widget>[
               TextButton(
                   onPressed: () {
@@ -95,22 +99,25 @@ class _InputScoreState extends State<InputScore> {
                   child: const Text("Cancelar")),
               TextButton(
                   onPressed: () {
-                    if (_textController.text.trim() != "") {
-                      final value = int.parse(_textController.text.trim());
-                      if (value > 0) {
-                        _scoreProvider.addScore(value, isOneValue);
-                      }
-                      _textController.clear();
-
-                      Navigator.of(context).pop();
-                      Provider.of<AppPreferencesProvider>(context,
-                              listen: false)
-                          .openModal = false;
-                    }
+                     _doSubmit(isOneValue);
                   },
                   child: const Text("Ok"))
             ],
           );
         });
+  }
+
+  void _doSubmit(bool isOneValue) {
+    if (_textController.text.trim() != "") {
+      final value = int.parse(_textController.text.trim());
+      if (value > 0) {
+        _scoreProvider.addScore(value, isOneValue);
+      }
+      _textController.clear();
+
+      Navigator.of(context).pop();
+      Provider.of<AppPreferencesProvider>(context, listen: false).openModal =
+          false;
+    }
   }
 }

@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Column(children: [
             Container(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: 30.0),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                   ]),
             ),
             Container(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.only(bottom: 20.0),
                 child: const Text("Anota Domino!!!",
                     style: TextStyle(
                         fontSize: 35.0,

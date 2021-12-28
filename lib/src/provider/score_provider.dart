@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ScoreProvider with ChangeNotifier {
-  List<int> teamScoreOne = [];
-  List<int> teamScoreTwo = [];
+  List<int> teamScoreOne = [0];
+  List<int> teamScoreTwo = [0];
   String _teamNameOne = "Casa";
   String _teamNameTwo = "Visita";
   bool existWinner = false;

@@ -1,5 +1,6 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:score_domino/src/provider/app_preferences_provider.dart';
 import 'package:score_domino/src/provider/score_provider.dart';
@@ -21,10 +22,11 @@ class _ListScoreState extends State<ListScore> {
                     .limitScore);
 
         if (existWinner != null) {
-          if (Provider.of<AppPreferencesProvider>(context, listen: false).sound){
+          if (Provider.of<AppPreferencesProvider>(context, listen: false)
+              .sound) {
             onPlayWinner();
           }
-          return _winnerDialog(existWinner);
+          return _doWinner(existWinner);
         }
         return _viewList(scoreProvider);
       } else {
@@ -33,28 +35,28 @@ class _ListScoreState extends State<ListScore> {
     });
   }
 
-  Widget _winnerDialog(String text) {
-    return AnimatedContainer(
-      margin: const EdgeInsets.only(top: 15.0),
-      padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 50.0),
-      duration: const Duration(seconds: 2),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.0),
-        color: Colors.amber
+  Widget _doWinner(String text) {
+    return Column(children: [
+      Lottie.asset('assets/lottie_winner.json'),
+      SizedBox(
+        width: 200,
+        height: 50,
+        child: FittedBox(
+          fit: BoxFit.contain,
+          child: Text(text,
+          textAlign: TextAlign.center,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+              fontSize: 29.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.amber)),
+        ),
       ),
-      curve: Curves.fastOutSlowIn,
-      width: 260.0,
-      height: 250.0,
-      child: Center(
-        child: Text(text,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-                fontSize: 40.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue)),
-      ),
-    );
+    ]);
   }
+
+
 
   Widget _viewList(ScoreProvider scoreProvider) {
     List<Widget> lineScore = [];
@@ -90,9 +92,7 @@ class _ListScoreState extends State<ListScore> {
   }
 
   void onPlayWinner() async {
-  AssetsAudioPlayer  assetsAudioPlayer = AssetsAudioPlayer();
-  assetsAudioPlayer.open(
-    Audio("assets/sound_winner.mp3")
-  );
-}
+    AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+    assetsAudioPlayer.open(Audio("assets/sound_winner.mp3"));
+  }
 }

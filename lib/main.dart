@@ -7,6 +7,8 @@ import 'package:score_domino/src/provider/score_provider.dart';
 import 'package:score_domino/src/routes/routes.dart';
 
 
+
+//TODO: ADD "SHARE TO SOCIAL MEDIA" 
 class MyApp extends StatelessWidget {
   
   final AppPreferencesProvider preferences;

@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.score_domino"
+        applicationId "com.dominoes.anotarapuntes"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
@@ -51,13 +51,30 @@ android {
         multiDexEnabled true
     }
 
-    buildTypes {
+    signingConfigs {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            if (System.getenv()["CI"]) {
+                storeFile file(System.getenv()["FCI_KEYSTORE_PATH"])
+                storePassword System.getenv()["FCI_KEYSTORE_PASSWORD"]
+                keyAlias System.getenv()["FCI_KEY_ALIAS"]
+                keyPassword System.getenv()["FCI_KEY_PASSWORD"]
+            } else {
+                // Do whatever, or nothing
+            }
         }
     }
+
+    buildTypes {        
+        buildTypes {
+            release {
+                signingConfig signingConfigs.release
+                minifyEnabled true
+                useProguard true
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
     flavorDimensions "default"
    productFlavors {
        dev {

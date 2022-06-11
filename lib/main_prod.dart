@@ -12,10 +12,10 @@ void main() async {
   final preferences = AppPreferencesProvider(appVersion);
   await preferences.initPreferences();
 
-  final configuratedApp = AppConfig(
-    env: AppEnv.dev,
-    child: MyApp(preferences),
-    nameAppFirebase: 'score-domino-prod',
-  );
-  return runApp(configuratedApp);
+  // final configuratedApp = AppConfig(
+  //   env: AppEnv.dev,
+  //   child: MyApp(preferences),
+  //   nameAppFirebase: 'score-domino-prod',
+  // );
+  runApp(MyApp(preferences));
 }

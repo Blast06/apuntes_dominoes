@@ -25,6 +25,12 @@
                 "--flavor",
                 "prod"
             ]
-        }
+        },
+        {
+            "name": "Dart",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main_dev.dart"
+        },
     ]
 }

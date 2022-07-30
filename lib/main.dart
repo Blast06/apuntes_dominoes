@@ -6,6 +6,8 @@ import 'package:score_domino/src/provider/app_preferences_provider.dart';
 import 'package:score_domino/src/provider/score_provider.dart';
 import 'package:package_info/package_info.dart';
 import 'package:score_domino/src/routes/routes.dart';
+import 'package:get/get.dart';
+import 'src/controllers/AdmobController.dart';
 
 
 
@@ -15,6 +17,7 @@ void main() async {
   final appVersion = 'v${packageInfo.version}';
   final preferences = AppPreferencesProvider(appVersion);
   await preferences.initPreferences();
+  Get.lazyPut(() => AdmobController());
 
   // final configuratedApp = AppConfig(
   //   env: AppEnv.dev,

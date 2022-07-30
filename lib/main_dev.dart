@@ -5,6 +5,7 @@ import 'package:score_domino/src/provider/app_preferences_provider.dart';
 import 'package:score_domino/src/resources/app_config.dart';
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   final appVersion = 'v${packageInfo.version}';

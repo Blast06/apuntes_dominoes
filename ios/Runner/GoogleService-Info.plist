@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>654508927394-9ee6rpgorj54gm1bti9thkfdopn3k00k.apps.googleusercontent.com</string>
+	<string>359439722905-dl7kd9epic5hmicbt9felg0fdt0m2k5r.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.654508927394-9ee6rpgorj54gm1bti9thkfdopn3k00k</string>
+	<string>com.googleusercontent.apps.359439722905-dl7kd9epic5hmicbt9felg0fdt0m2k5r</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA3ecB47KUTTtdzLZA_KIseAZMh1Uoo0uk</string>
+	<string>AIzaSyAMgq_fVcRTy0pjzlXSlhlqUODP-Uash-I</string>
 	<key>GCM_SENDER_ID</key>
-	<string>654508927394</string>
+	<string>359439722905</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.dominoes.anotarapuntes</string>
 	<key>PROJECT_ID</key>
-	<string>cursofirebase-18110</string>
+	<string>nicknames-generator</string>
 	<key>STORAGE_BUCKET</key>
-	<string>cursofirebase-18110.appspot.com</string>
+	<string>nicknames-generator.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:654508927394:ios:2c4d5290047445c6dceafb</string>
-	<key>DATABASE_URL</key>
-	<string>https://cursofirebase-18110.firebaseio.com</string>
+	<string>1:359439722905:ios:7690f7fed72131be7ccb08</string>
 </dict>
 </plist>

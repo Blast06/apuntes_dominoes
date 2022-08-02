@@ -7,7 +7,9 @@ import 'package:score_domino/src/provider/score_provider.dart';
 import 'package:package_info/package_info.dart';
 import 'package:score_domino/src/routes/routes.dart';
 import 'package:get/get.dart';
+import 'Translations.dart';
 import 'src/controllers/AdmobController.dart';
+import 'src/pages/splash_page.dart';
 
 
 
@@ -17,7 +19,7 @@ void main() async {
   final appVersion = 'v${packageInfo.version}';
   final preferences = AppPreferencesProvider(appVersion);
   await preferences.initPreferences();
-  Get.lazyPut(() => AdmobController());
+
 
   // final configuratedApp = AppConfig(
   //   env: AppEnv.dev,
@@ -42,10 +44,13 @@ class MyApp extends StatelessWidget {
          ChangeNotifierProvider<AppPreferencesProvider>(
           create: (_) => preferences),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner:  false,
-        initialRoute: '/',
-        routes: getApplicationRoutes(),
+        // initialRoute: '/',
+        // routes: getApplicationRoutes(),
+         locale: Get.deviceLocale,
+        translations: MyTransalations(),
+        home: SplashPage(),
       ),
     );
   }

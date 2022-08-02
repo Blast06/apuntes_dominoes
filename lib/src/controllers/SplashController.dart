@@ -8,25 +8,24 @@ import 'AdmobController.dart';
 class SplashController extends GetxController {
   final admob = Get.find<AdmobController>();
   Logger log = Logger();
-  
-  
 
   bool showInterstitial = false;
 
   @override
   void onReady() async {
     log.i("onReady of splash controller");
-  
 
     super.onReady();
     // await admob.loadAd();
 
-    await Future.delayed(Duration(seconds: 5), () {
-      admob.showAdIfAvailable();
+    await Future.delayed(const Duration(seconds: 5), () {
+      // admob.showAdIfAvailable();
+      admob.appOpenAd!.show();
       Get.off(() => const HomePage(), transition: Transition.zoom);
     });
   }
 
+  @override
   void onInit() async {
     super.onInit();
     log.i("Init of splash controller");

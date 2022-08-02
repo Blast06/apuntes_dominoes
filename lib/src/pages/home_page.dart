@@ -7,6 +7,7 @@ import 'package:score_domino/src/widgets/list_score.dart';
 import 'package:score_domino/src/widgets/settings.dart';
 import 'package:score_domino/src/widgets/show_result.dart';
 import 'package:score_domino/src/widgets/teams.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = "/";
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           const Image(
-            image: AssetImage('assets/background.jpeg'),
+            image: AssetImage('assets/background.jpg'),
             fit: BoxFit.cover,
             height: double.infinity,
           ),
@@ -41,8 +42,8 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
                 padding: const EdgeInsets.only(bottom: 20.0),
-                child: const Text("Anota Domino!!!",
-                    style: TextStyle(
+                child: Text('title'.tr,
+                    style: const TextStyle(
                         fontSize: 35.0,
                         color: Colors.white,
                         fontWeight: FontWeight.bold))),

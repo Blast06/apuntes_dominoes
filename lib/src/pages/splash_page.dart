@@ -24,7 +24,7 @@ class _SplashPageState extends State<SplashPage> {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               /// Para fines practicos usarremos esta animacion
               /// disponible en linea.
               child: RiveAnimation.asset(
@@ -34,7 +34,7 @@ class _SplashPageState extends State<SplashPage> {
             ),
             Text(
               'loading_txt'.tr,
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             )
           ],
         ),

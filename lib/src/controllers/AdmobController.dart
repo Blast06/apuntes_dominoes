@@ -23,7 +23,7 @@ class AdmobController extends GetxController {
       ? 'ca-app-pub-3940256099942544/3419835294'
       : 'ca-app-pub-3940256099942544/5662855259';
 
-  AppOpenAd? _appOpenAd;
+  AppOpenAd? appOpenAd;
   bool _isShowingAd = false;
 
   Logger logger = Logger();
@@ -50,10 +50,12 @@ class AdmobController extends GetxController {
       request: AdRequest(),
       adLoadCallback: AppOpenAdLoadCallback(
         onAdLoaded: (ad) {
-          _appOpenAd = ad;
+          appOpenAd = ad;
         },
         onAdFailedToLoad: (error) {
-          print('AppOpenAd failed to load: $error');
+     
+            print('AppOpenAd failed to load: $error');
+      
           // Handle the error.
         },
       ),
@@ -62,7 +64,7 @@ class AdmobController extends GetxController {
 
   /// Whether an ad is available to be shown.
   bool get isAdAvailable {
-    return _appOpenAd != null;
+    return appOpenAd != null;
   }
 
   void showAdIfAvailable() {
@@ -77,7 +79,7 @@ class AdmobController extends GetxController {
       return;
     }
     // Set the fullScreenContentCallback and show the ad.
-    _appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
+    appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
       onAdShowedFullScreenContent: (ad) {
         _isShowingAd = true;
         print('$ad onAdShowedFullScreenContent');
@@ -86,17 +88,17 @@ class AdmobController extends GetxController {
         print('$ad onAdFailedToShowFullScreenContent: $error');
         _isShowingAd = false;
         ad.dispose();
-        _appOpenAd = null;
+        appOpenAd = null;
       },
       onAdDismissedFullScreenContent: (ad) {
         print('$ad onAdDismissedFullScreenContent');
         _isShowingAd = false;
         ad.dispose();
-        _appOpenAd = null;
+        appOpenAd = null;
         loadAd();
       },
     );
-    _appOpenAd!.show();
+    appOpenAd!.show();
   }
 
   String? getAdMobAppId() {

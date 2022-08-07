@@ -1,21 +1,18 @@
-
-
-
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppPreferencesProvider with ChangeNotifier {
-
   String version;
 
   bool _openModal = false;
-   
+  Logger log = Logger();
+
   AppPreferencesProvider(this.version);
 
   late SharedPreferences _preferences;
-
 
   initPreferences() async {
     _preferences = await SharedPreferences.getInstance();
@@ -23,27 +20,24 @@ class AppPreferencesProvider with ChangeNotifier {
     _preferences.setInt('limitScore', 100);
   }
 
-  
   bool get openModal => _openModal;
-  set openModal(bool value){
+  set openModal(bool value) {
     _openModal = value;
     notifyListeners();
-  } 
+  }
 
-
-  set limitScore(int value){
+  set limitScore(int value) {
     _preferences.setInt('limitScore', value);
+    log.v("valor $value");
     notifyListeners();
   }
 
   int get limitScore => _preferences.getInt('limitScore')!;
 
-  set sound(bool value){
+  set sound(bool value) {
     _preferences.setBool('sound', value);
     notifyListeners();
   }
 
   bool get sound => _preferences.getBool('sound')!;
-
-
 }

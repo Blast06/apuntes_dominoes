@@ -21,11 +21,15 @@ class _ListScoreState extends State<ListScore> {
                 Provider.of<AppPreferencesProvider>(context, listen: false)
                     .limitScore);
 
+
+
         if (existWinner != null) {
           if (Provider.of<AppPreferencesProvider>(context, listen: false)
               .sound) {
             onPlayWinner();
           }
+
+
           return _doWinner(existWinner);
         }
         return _viewList(scoreProvider);
@@ -36,24 +40,27 @@ class _ListScoreState extends State<ListScore> {
   }
 
   Widget _doWinner(String text) {
-    return Column(children: [
-      Lottie.asset('assets/lottie_winner.json'),
-      SizedBox(
-        width: 200,
-        height: 50,
-        child: FittedBox(
-          fit: BoxFit.contain,
-          child: Text(text,
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: const TextStyle(
-              fontSize: 29.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.amber)),
+    return GestureDetector(
+      onTap: () => Provider.of<ScoreProvider>(context, listen: false).reset(),
+      child: Column(children: [
+        Lottie.asset('assets/lottie_winner.json'),
+        SizedBox(
+          width: 200,
+          height: 50,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Text(text,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+                fontSize: 29.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.amber)),
+          ),
         ),
-      ),
-    ]);
+      ]),
+    );
   }
 
 

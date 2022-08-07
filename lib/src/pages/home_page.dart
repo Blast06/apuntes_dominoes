@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                     style: const TextStyle(
                         fontSize: 35.0,
                         color: Colors.white,
-                        fontWeight: FontWeight.bold))),
+                        fontWeight: FontWeight.bold),),),
             const InputScore(),
             const Divider(
                 color: Colors.yellow,

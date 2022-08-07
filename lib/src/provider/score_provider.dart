@@ -13,22 +13,19 @@ class ScoreProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
   String get teamNameOne => _teamNameOne;
-  
-  set teamNameOne(String value){
+
+  set teamNameOne(String value) {
     _teamNameOne = value;
     notifyListeners();
   }
-  
-  set teamNameTwo(String value){
+
+  set teamNameTwo(String value) {
     _teamNameTwo = value;
     notifyListeners();
   }
 
   String get teamNameTwo => _teamNameTwo;
-
-
 
   addScore(int value, bool isOneValue) {
     if (isOneValue) {
@@ -64,7 +61,7 @@ class ScoreProvider with ChangeNotifier {
       existWinner = true;
       return 'Ganador $teamNameTwo';
     }
-
+    // reset();
     return null;
   }
 }

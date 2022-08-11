@@ -19,7 +19,7 @@ void main() async {
   final appVersion = 'v${packageInfo.version}';
   final preferences = AppPreferencesProvider(appVersion);
   await preferences.initPreferences();
-
+Get.lazyPut(() => AdmobController());
 
   // final configuratedApp = AppConfig(
   //   env: AppEnv.dev,

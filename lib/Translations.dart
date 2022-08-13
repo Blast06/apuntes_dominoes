@@ -32,6 +32,12 @@ class MyTransalations extends Translations {
           'generate_another': 'Generate',
           "symbols": "More symbols",
           'symbolsListText': 'More symbols',
+          'winner_txt':'Winner is ',
+          'home':'home',
+          'guest':'guest',
+          'cancel':'Cancel',
+          'team1': 'Team 1',
+          'team2': 'Team 2',
         },
         'es': {
           'start_text': 'RPG',
@@ -60,7 +66,14 @@ class MyTransalations extends Translations {
           'copy': 'Copiar',
           'generate_another': 'Generar otro',
           "symbols": "Simbolos",
-          'symbolsListText': 'Mas estilos'
+          'symbolsListText': 'Mas estilos',
+          'winner_txt':'Ganador ',
+          'home':'Casa',
+          'guest':'Visita',
+          'cancel':'Cancelar',
+          'team1': 'Equipo 1',
+          'team2': 'Equipo 2',
+
         },
       };
 }

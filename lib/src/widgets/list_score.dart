@@ -56,7 +56,7 @@ class _ListScoreState extends State<ListScore> {
             style: const TextStyle(
                 fontSize: 29.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.amber)),
+                color: Color.fromARGB(255, 0, 0, 0))),
           ),
         ),
       ]),

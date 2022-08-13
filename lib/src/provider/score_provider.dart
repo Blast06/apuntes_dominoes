@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 
 class ScoreProvider with ChangeNotifier {
   List<int> teamScoreOne = [0];
   List<int> teamScoreTwo = [0];
-  String _teamNameOne = "Casa";
-  String _teamNameTwo = "Visita";
+  String _teamNameOne = 'home'.tr;
+  String _teamNameTwo = 'guest'.tr;
   bool existWinner = false;
 
   constructor() {
@@ -52,14 +54,15 @@ class ScoreProvider with ChangeNotifier {
     final acumulado1 = teamScoreOne.reduce((value, element) => value + element);
     if (acumulado1 >= limit) {
       existWinner = true;
-      return 'Ganador $teamNameOne';
+      return  'winner_txt'.tr + teamNameOne;
     }
 
     final acumulado2 = teamScoreTwo.reduce((value, element) => value + element);
 
     if (acumulado2 >= limit) {
       existWinner = true;
-      return 'Ganador $teamNameTwo';
+      return  'winner_txt'.tr + teamNameTwo;
+
     }
     // reset();
     return null;

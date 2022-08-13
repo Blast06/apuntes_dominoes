@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:score_domino/src/provider/app_preferences_provider.dart';
 import 'package:score_domino/src/provider/score_provider.dart';
+import 'package:get/get.dart';
 
 class Teams extends StatefulWidget {
   const Teams({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _TeamsState extends State<Teams> {
         barrierDismissible: true,
         builder: (context) {
           return AlertDialog(
-            title: const Text("Equipos"),
+            title: Text('teams'.tr),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             content: StatefulBuilder(
@@ -51,7 +52,7 @@ class _TeamsState extends State<Teams> {
                       initialValue: _scoreProvider.teamNameOne,
                       autofocus: false,
                       decoration: InputDecoration(
-                        labelText: "Equipo 1",
+                        labelText: 'team1'.tr,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -67,7 +68,7 @@ class _TeamsState extends State<Teams> {
                       initialValue: _scoreProvider.teamNameTwo,
                       autofocus: false,
                       decoration: InputDecoration(
-                        labelText: "Equipo 2",
+                        labelText: 'team2'.tr,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -89,7 +90,7 @@ class _TeamsState extends State<Teams> {
                                 listen: false)
                             .openModal = false,
                       },
-                  child: const Text('Cancelar')),
+                  child: Text('cancel'.tr)),
               TextButton(
                   onPressed: () => {
                         if (_nameOne.isNotEmpty && _nameTwo.isNotEmpty)

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:score_domino/src/provider/app_preferences_provider.dart';
+import 'package:get/get.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class _SettingsState extends State<Settings> {
         barrierDismissible: true,
         builder: (context) {
           return AlertDialog(
-            title: const Text("Ajustes"),
+            title: Text('settings'.tr),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             content: StatefulBuilder(
@@ -50,7 +51,7 @@ class _SettingsState extends State<Settings> {
               return Column(
                 children: <Widget>[
                   SwitchListTile(
-                      title: const Text('Sonido'),
+                      title: Text('sound'.tr),
                       value: _sound,
                       onChanged: (valor) => {
                             setState(() {
@@ -65,7 +66,7 @@ class _SettingsState extends State<Settings> {
                         FilteringTextInputFormatter.digitsOnly
                       ],
                       decoration: InputDecoration(
-                        labelText: "Limite de Puntos",
+                        labelText: 'points_limit'.tr,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -85,7 +86,7 @@ class _SettingsState extends State<Settings> {
                         Navigator.of(context).pop(),
                         _appPreferencesProvider.openModal = false,
                       },
-                  child: const Text('Cancelar')),
+                  child: Text('cancel'.tr)),
               TextButton(
                   onPressed: () => {
                         if (_limitScore > 0 && _limitScore <= 100)
@@ -96,7 +97,7 @@ class _SettingsState extends State<Settings> {
                             _appPreferencesProvider.openModal = false,
                           }
                       },
-                  child: const Text('Ok'))
+                  child: Text('ok'.tr))
             ],
           );
         });

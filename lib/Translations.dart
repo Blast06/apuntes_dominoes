@@ -7,7 +7,7 @@ class MyTransalations extends Translations {
         'en': {
           'start_text': 'RPG',
           'start_text_btn': 'START',
-          'title': 'Dominoes',
+          'title': 'Score Dominoes',
           'names_page': 'Names for RPG',
           'bottom_bar_home': 'Home',
           'bottom_bar_privacy': 'Privacy Policy',
@@ -35,7 +35,7 @@ class MyTransalations extends Translations {
         },
         'es': {
           'start_text': 'RPG',
-          'title': 'Nombres para RPGs',
+          'title': 'Apuntes de Domino',
           'start_text_btn': 'INICIAR',
           'names_page': 'Nombres para RPG',
           'bottom_bar_home': 'Inicio',

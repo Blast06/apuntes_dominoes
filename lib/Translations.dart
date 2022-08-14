@@ -39,7 +39,8 @@ class MyTransalations extends Translations {
           'team1': 'Team 1',
           'team2': 'Team 2',
           'settings': 'Settings',
-          'points_limit': 'Points to win'
+          'points_limit': 'Points to win',
+          'add_points':'Add score'
         },
         'es': {
           'start_text': 'RPG',
@@ -76,7 +77,8 @@ class MyTransalations extends Translations {
           'team1': 'Equipo 1',
           'team2': 'Equipo 2',
           'settings': 'Configuracion',
-          'points_limit': 'Limite de pts'
+          'points_limit': 'Limite de pts',
+          'add_points':'Agregar puntos'
         },
       };
 }

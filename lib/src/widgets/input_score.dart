@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:score_domino/src/provider/app_preferences_provider.dart';
 import 'package:score_domino/src/provider/score_provider.dart';
+import 'package:get/get.dart';
+
 
 class InputScore extends StatefulWidget {
   const InputScore({Key? key}) : super(key: key);
@@ -67,7 +69,7 @@ class _InputScoreState extends State<InputScore> {
         barrierDismissible: true,
         builder: (context) {
           return AlertDialog(
-            title: const Text("Agregar Puntanje"),
+            title: const Text("add_points"),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             content: TextFormField(
@@ -96,7 +98,7 @@ class _InputScoreState extends State<InputScore> {
                     Provider.of<AppPreferencesProvider>(context, listen: false)
                         .openModal = false;
                   },
-                  child: const Text("Cancelar")),
+                  child: Text("cancel".tr)),
               TextButton(
                   onPressed: () {
                      _doSubmit(isOneValue);

@@ -69,7 +69,7 @@ class _InputScoreState extends State<InputScore> {
         barrierDismissible: true,
         builder: (context) {
           return AlertDialog(
-            title: const Text("add_points"),
+            title: Text("add_points".tr),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
             content: TextFormField(

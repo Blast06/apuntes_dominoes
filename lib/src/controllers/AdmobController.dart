@@ -20,8 +20,8 @@ class AdmobController extends GetxController {
   // final bannerController = BannerAdController();
 
   String adUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/3419835294'
-      : 'ca-app-pub-3940256099942544/5662855259';
+      ? MyAdmob.PROD_open_ad_id_android
+      : MyAdmob.PROD_open_ad_id_ios;
 
   AppOpenAd? appOpenAd;
   bool _isShowingAd = false;

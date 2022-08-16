@@ -75,6 +75,18 @@ android {
         }
     }
 
+ flavorDimensions "default"
+   productFlavors {
+       dev {
+           dimension "default"
+       }
+       prod {
+           dimension "default"
+       }
+   }
+    lintOptions {
+    checkReleaseBuilds false
+  }
 
 }
 

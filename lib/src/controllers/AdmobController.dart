@@ -1,13 +1,11 @@
 import 'dart:io';
 
-
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'package:logger/logger.dart';
 
 import '../../MyAdmob.dart';
-
 
 const TEST = true;
 
@@ -17,23 +15,24 @@ class AdmobController extends GetxController {
 
   // late AppOpenAd appOpenAd;
 
-  // final bannerController = BannerAdController();
+  MyAdmob admobConfig = MyAdmob();
 
-  String adUnitId = Platform.isAndroid
-      ? MyAdmob.PROD_open_ad_id_android
-      : MyAdmob.PROD_open_ad_id_ios;
+  // final bannerController = BannerAdController();
 
   AppOpenAd? appOpenAd;
   bool _isShowingAd = false;
-
+  String adUnitId = '0';
   Logger logger = Logger();
 
   @override
   void onInit() async {
     super.onInit();
-    
-     await loadAd();
-    
+    adUnitId = admobConfig.getOpenAdId()!;
+
+    logger.v("adUnitId => $adUnitId ");
+
+    await loadAd();
+
     logger.i("ADMOB CONTROLLER STARTED");
   }
 
@@ -44,6 +43,7 @@ class AdmobController extends GetxController {
   /// Load an AppOpenAd.
   Future<void> loadAd() async {
     logger.v("ADMOB LOADED 😍😍----------*******");
+    logger.v("adUnitId => $adUnitId");
     AppOpenAd.load(
       adUnitId: adUnitId,
       orientation: AppOpenAd.orientationPortrait,
@@ -53,9 +53,8 @@ class AdmobController extends GetxController {
           appOpenAd = ad;
         },
         onAdFailedToLoad: (error) {
-     
-            print('AppOpenAd failed to load: $error');
-      
+          print('AppOpenAd failed to load: $error');
+
           // Handle the error.
         },
       ),

@@ -107,14 +107,14 @@ class MyAdmob {
     return 'null';
   }
 
-  static String? getOpenAdId() {
+  String? getOpenAdId() {
     if (Platform.isIOS) {
       return TEST ? MyAdmob.TEST_open_ad_id_ios : MyAdmob.PROD_open_ad_id_ios;
     } else if (Platform.isAndroid) {
-      print(" ✔ ❤ => THIS IS ADMOB FOR ANDROID");
       return TEST
           ? MyAdmob.TEST_open_ad_id_android
           : MyAdmob.PROD_open_ad_id_android;
     }
+    return null;
   }
 }

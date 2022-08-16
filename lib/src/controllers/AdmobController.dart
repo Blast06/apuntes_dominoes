@@ -43,7 +43,7 @@ class AdmobController extends GetxController {
 
   /// Load an AppOpenAd.
   Future<void> loadAd() async {
-    logger.v("ADMOB LOADED 😍😍");
+    logger.v("ADMOB LOADED 😍😍----------*******");
     AppOpenAd.load(
       adUnitId: adUnitId,
       orientation: AppOpenAd.orientationPortrait,

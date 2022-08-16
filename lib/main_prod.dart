@@ -6,6 +6,7 @@ import 'package:score_domino/src/provider/app_preferences_provider.dart';
 import 'package:score_domino/src/resources/app_config.dart';
 
 import 'src/controllers/AdmobController.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 
 void main() async {
@@ -14,6 +15,8 @@ void main() async {
   final appVersion = 'v${packageInfo.version}';
   final preferences = AppPreferencesProvider(appVersion);
   await preferences.initPreferences();
+  final status = await AppTrackingTransparency.requestTrackingAuthorization();
+
 Get.lazyPut(() => AdmobController());
   // final configuratedApp = AppConfig(
   //   env: AppEnv.dev,

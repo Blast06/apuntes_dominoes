@@ -10,6 +10,8 @@ import 'package:get/get.dart';
 import 'Translations.dart';
 import 'src/controllers/AdmobController.dart';
 import 'src/pages/splash_page.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+
 
 
 
@@ -19,6 +21,8 @@ void main() async {
   final appVersion = 'v${packageInfo.version}';
   final preferences = AppPreferencesProvider(appVersion);
   await preferences.initPreferences();
+  final status = await AppTrackingTransparency.requestTrackingAuthorization();
+
 Get.lazyPut(() => AdmobController());
 
   // final configuratedApp = AppConfig(

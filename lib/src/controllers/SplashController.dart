@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:score_domino/src/pages/home_page.dart';
 import 'AdmobController.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
-
+import 'package:is_first_run/is_first_run.dart';
 
 class SplashController extends GetxController {
   final admob = Get.find<AdmobController>();
@@ -16,14 +16,19 @@ class SplashController extends GetxController {
   @override
   void onReady() async {
     log.i("onReady of splash controller");
-
+    bool firstRun = await IsFirstRun.isFirstRun();
+    if (firstRun) {
+      final status =
+          await AppTrackingTransparency.requestTrackingAuthorization();
+    }
     super.onReady();
     // await admob.loadAd();
-    final status = await AppTrackingTransparency.requestTrackingAuthorization();
+
     await Future.delayed(const Duration(seconds: 5), () {
       // admob.showAdIfAvailable();
-      
-      admob.appOpenAd!.show();
+      if (!firstRun) {
+        admob.appOpenAd!.show();
+      }
       Get.off(() => const HomePage(), transition: Transition.zoom);
     });
   }

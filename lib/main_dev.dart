@@ -17,7 +17,7 @@ void main() async {
   final appVersion = 'v${packageInfo.version}';
   final preferences = AppPreferencesProvider(appVersion);
   await preferences.initPreferences();
-  final status = await AppTrackingTransparency.requestTrackingAuthorization();
+
 
   Get.lazyPut(() => AdmobController());
   log.v("Testing on ios");

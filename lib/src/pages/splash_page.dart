@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
+import 'package:score_domino/utils.dart';
+import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 import '../controllers/SplashController.dart';
 
@@ -15,7 +18,32 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    // _controller = SimpleAnimation('idle', autoplay: true);
+  
+    // showCustomTrackingDialog(context);
+
+
+    String _authStatus = 'Unknown';
+Future<void> initPlugin() async {
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      final TrackingStatus status =
+          await AppTrackingTransparency.trackingAuthorizationStatus;
+      setState(() => _authStatus = '$status');
+      // If the system can show an authorization request dialog
+      if (status == TrackingStatus.notDetermined) {
+         final TrackingStatus status =
+              await AppTrackingTransparency.requestTrackingAuthorization();
+          setState(() => _authStatus = '$status');
+        }
+    } on PlatformException {
+      setState(() => _authStatus = 'PlatformException was thrown');
+    }
+
+    final uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
+    print("UUID: $uuid");
+  }
+
+  WidgetsBinding.instance.addPostFrameCallback((_) => initPlugin());
   }
 
   @override

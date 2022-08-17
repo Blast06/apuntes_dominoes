@@ -17,10 +17,7 @@ class SplashController extends GetxController {
   void onReady() async {
     log.i("onReady of splash controller");
     bool firstRun = await IsFirstRun.isFirstRun();
-    if (firstRun) {
-      final status =
-          await AppTrackingTransparency.requestTrackingAuthorization();
-    }
+    
     super.onReady();
     // await admob.loadAd();
 

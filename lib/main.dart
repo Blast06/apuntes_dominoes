@@ -23,7 +23,7 @@ void main() async {
   await preferences.initPreferences();
   
 
-  final status = await AppTrackingTransparency.requestTrackingAuthorization();
+  // final status = await AppTrackingTransparency.requestTrackingAuthorization();
 
 
 Get.lazyPut(() => AdmobController());

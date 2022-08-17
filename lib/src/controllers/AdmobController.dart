@@ -7,7 +7,7 @@ import 'package:logger/logger.dart';
 
 import '../../MyAdmob.dart';
 
-const TEST = true;
+const TEST = false;
 
 class AdmobController extends GetxController {
   // AdmobInterstitial interstitialAd;

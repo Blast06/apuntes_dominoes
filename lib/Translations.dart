@@ -5,7 +5,7 @@ class MyTransalations extends Translations {
   // TODO: implement keys
   Map<String, Map<String, String>> get keys => {
         'en': {
-          'start_text': 'RPG',
+         
           'start_text_btn': 'START',
           'title': 'Score Dominoes',
           'names_page': 'Names for RPG',
@@ -45,7 +45,6 @@ class MyTransalations extends Translations {
           'teams':'Teams'
         },
         'es': {
-          'start_text': 'RPG',
           'title': 'Apuntes de Domino',
           'start_text_btn': 'INICIAR',
           'names_page': 'Nombres para RPG',

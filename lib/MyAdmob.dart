@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:logger/logger.dart';
 import 'package:get/get.dart';
 
-const TEST = true;
+const TEST = false;
 
 class MyAdmob {
   //TEST

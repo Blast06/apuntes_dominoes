@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:rive/rive.dart';
-import 'package:score_domino/utils.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 import '../controllers/SplashController.dart';

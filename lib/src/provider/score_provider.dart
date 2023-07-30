@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../services/external_services.dart';
+
 
 class ScoreProvider with ChangeNotifier {
   List<int> teamScoreOne = [0];
@@ -47,6 +49,7 @@ class ScoreProvider with ChangeNotifier {
     teamScoreTwo = [];
     teamScoreTwo.add(0);
     existWinner = false;
+    ExternalServices.getInstance().showRateApp();
     notifyListeners();
   }
 

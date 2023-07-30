@@ -14,6 +14,22 @@ import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 
 
+//TODO:
+//agregar estas keywords: 
+// Anote domino,
+// Anotar domino
+// Cantidad de partidas que lleva cada jugador
+// Añadir funcion para indicar capicúa, también configurar el monto de la 
+// Capicúa y marcarlo en la tabla de anotacion
+// Añadir funcion para jugar de 3 personas
+// Añadir que se guarden las manos o partidas
+// Añadir quien sale al inicio de cada partida
+// Añadir cuando se ganó en zapatera o lisa
+// Añadir insights
+//TODO: AGREGAR SI NO TIENE INTERNET, NO CARGAR EL ANUNCIO Y SEGUIR AL HOMESCREEN
+
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

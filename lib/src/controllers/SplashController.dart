@@ -20,6 +20,7 @@ class SplashController extends GetxController {
     await Future.delayed(const Duration(seconds: 5), () {
       if (admob.appOpenAd != null) {
         admob.appOpenAd!.show();
+        Get.off(() => const HomePage(), transition: Transition.zoom);
       } else {
         // Handle the case when admob.appOpenAd is null
         //await AppTrackingTransparency.requestTrackingAuthorization();

@@ -1,5 +1,7 @@
 
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:score_domino/src/provider/app_preferences_provider.dart';
@@ -8,6 +10,7 @@ import 'package:package_info/package_info.dart';
 import 'package:score_domino/src/routes/routes.dart';
 import 'package:get/get.dart';
 import 'Translations.dart';
+import 'firebase_options.dart';
 import 'src/controllers/AdmobController.dart';
 import 'src/pages/splash_page.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
@@ -39,8 +42,16 @@ void main() async {
   await preferences.initPreferences();
   
 
-  // final status = await AppTrackingTransparency.requestTrackingAuthorization();
 
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {}
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+
+  // final status = await AppTrackingTransparency.requestTrackingAuthorization();
+await AppTrackingTransparency.requestTrackingAuthorization();
 
 Get.lazyPut(() => AdmobController());
 

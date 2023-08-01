@@ -30,6 +30,7 @@ import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 // Añadir cuando se ganó en zapatera o lisa
 // Añadir insights
 //TODO: AGREGAR SI NO TIENE INTERNET, NO CARGAR EL ANUNCIO Y SEGUIR AL HOMESCREEN
+// Agregar escaner de dominos que cuentalas fichas -> https://apps.apple.com/do/app/domino-scan/id1483065272
 
 
 

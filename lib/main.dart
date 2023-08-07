@@ -28,7 +28,7 @@ import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 // Añadir que se guarden las manos o partidas
 // Añadir quien sale al inicio de cada partida
 // Añadir cuando se ganó en zapatera o lisa
-// Añadir insights
+// Añadir insights(historial de ganadores, partidaas,etc, puede ser con plotly de dash)
 //TODO: AGREGAR SI NO TIENE INTERNET, NO CARGAR EL ANUNCIO Y SEGUIR AL HOMESCREEN
 // Agregar escaner de dominos que cuentalas fichas -> https://apps.apple.com/do/app/domino-scan/id1483065272
 

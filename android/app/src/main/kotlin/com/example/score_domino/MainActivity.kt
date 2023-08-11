@@ -1,4 +1,4 @@
-package com.example.score_domino
+package com.dominoes.anotarapuntes
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -43,6 +43,8 @@ dependencies:
   provider: ^5.0.0
   rive: ^0.7.30
   shared_preferences: ^2.0.6
+  cloud_firestore: ^4.12.1
+  firebase_database: ^10.3.2
 
 dev_dependencies:
   app_tracking_transparency: ^2.0.2+4

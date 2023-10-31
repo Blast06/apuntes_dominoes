@@ -49,6 +49,7 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
   } catch (e) {}
+
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
   // final status = await AppTrackingTransparency.requestTrackingAuthorization();

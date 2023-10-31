@@ -1,4 +1,6 @@
 import 'dart:io';
+// import 'dart:js_interop';
+// import 'dart:js_interop';
 
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -6,6 +8,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:logger/logger.dart';
 
 import '../../MyAdmob.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 const TEST = false;
 
@@ -14,8 +17,9 @@ class AdmobController extends GetxController {
   // late InterstitialAd interstitialAd;
 
   // late AppOpenAd appOpenAd;
-
+  final db = FirebaseFirestore.instance;
   MyAdmob admobConfig = MyAdmob();
+  bool showAd = false;
 
   // final bannerController = BannerAdController();
 
@@ -27,17 +31,31 @@ class AdmobController extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    adUnitId = admobConfig.getOpenAdId()!;
 
+    adUnitId = admobConfig.getOpenAdId()!;
+    await readAdsFromFirebase();
     logger.v("adUnitId => $adUnitId ");
 
-    await loadAd();
-
+    //if show is true then show the add
+   
+    logger.v("showad: $showAd");
     logger.i("ADMOB CONTROLLER STARTED");
   }
 
   void onClose() {
     // bannerController.dispose();
+  }
+
+  Future<void> readAdsFromFirebase() async {
+    final ads = db.collection("apps").doc("apuntes_dominoes");
+    ads.get().then((DocumentSnapshot documentSnapshot) {
+      final appAds = documentSnapshot.data() as Map<String, dynamic>;
+      showAd = appAds["show"];
+      logger.v(showAd);
+      if (showAd) {
+        loadAd();
+    }
+    });
   }
 
   /// Load an AppOpenAd.
@@ -47,7 +65,7 @@ class AdmobController extends GetxController {
     AppOpenAd.load(
       adUnitId: adUnitId,
       orientation: AppOpenAd.orientationPortrait,
-      request: AdRequest(),
+      request: const AdRequest(),
       adLoadCallback: AppOpenAdLoadCallback(
         onAdLoaded: (ad) {
           appOpenAd = ad;

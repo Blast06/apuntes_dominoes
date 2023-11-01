@@ -44,6 +44,9 @@ void main() async {
   
 
 
+ // final status = await AppTrackingTransparency.requestTrackingAuthorization();
+await AppTrackingTransparency.requestTrackingAuthorization();
+
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -52,8 +55,7 @@ void main() async {
 
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
-  // final status = await AppTrackingTransparency.requestTrackingAuthorization();
-await AppTrackingTransparency.requestTrackingAuthorization();
+ 
 
 Get.lazyPut(() => AdmobController());
 

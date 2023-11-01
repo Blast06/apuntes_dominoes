@@ -64,6 +64,7 @@ Get.lazyPut(() => AdmobController());
   //   child: MyApp(preferences),
   //   nameAppFirebase: 'score-domino-prod',
   // );
+  
   runApp(MyApp(preferences));
 }
 

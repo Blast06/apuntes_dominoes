@@ -44,8 +44,7 @@ void main() async {
   
 
 
- // final status = await AppTrackingTransparency.requestTrackingAuthorization();
-await AppTrackingTransparency.requestTrackingAuthorization();
+ final status = await AppTrackingTransparency.requestTrackingAuthorization();
 
   try {
     await Firebase.initializeApp(

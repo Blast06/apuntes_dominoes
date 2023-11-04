@@ -48,6 +48,7 @@ class AdmobController extends GetxController {
 
   Future<void> readAdsFromFirebase() async {
     final ads = db.collection("apps").doc("apuntes_dominoes");
+    db.settings = const Settings(persistenceEnabled: true);
     ads.get().then((DocumentSnapshot documentSnapshot) {
       final appAds = documentSnapshot.data() as Map<String, dynamic>;
       showAd = appAds["show"];

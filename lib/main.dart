@@ -37,6 +37,10 @@ import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) async {
+
+  final status = await AppTrackingTransparency.requestTrackingAuthorization();
+  });
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   final appVersion = 'v${packageInfo.version}';
   final preferences = AppPreferencesProvider(appVersion);
@@ -44,8 +48,7 @@ void main() async {
   
 
 
- // final status = await AppTrackingTransparency.requestTrackingAuthorization();
-await AppTrackingTransparency.requestTrackingAuthorization();
+// await AppTrackingTransparency.requestTrackingAuthorization();
 
   try {
     await Firebase.initializeApp(

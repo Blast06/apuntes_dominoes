@@ -48,8 +48,6 @@ void main() async {
   
 
 
-// await AppTrackingTransparency.requestTrackingAuthorization();
-
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,

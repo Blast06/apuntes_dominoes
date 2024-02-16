@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:score_domino/src/provider/app_preferences_provider.dart';
 import 'package:score_domino/src/provider/score_provider.dart';
 import 'package:package_info/package_info.dart';
-import 'package:score_domino/src/routes/routes.dart';
 import 'package:get/get.dart';
 import 'Translations.dart';
 import 'firebase_options.dart';
@@ -39,7 +38,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) async {
 
-  final status = await AppTrackingTransparency.requestTrackingAuthorization();
+// verificar ue no   esta saliendo en la app, antes salia y la que se ha subido en el review tambien
+// grabar video mostrando el dialg para subirlo en appstore connect
+  await AppTrackingTransparency.requestTrackingAuthorization();
   });
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   final appVersion = 'v${packageInfo.version}';
